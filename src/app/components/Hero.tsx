@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
-import { Zap, ArrowRight } from "lucide-react";
-import { HeroIllustration } from "./Illustrations";
+import { Zap, ArrowRight, CheckCircle2, ScanLine } from "lucide-react";
+import Image from "next/image";
 
 export default function Hero() {
     return (
@@ -64,17 +64,67 @@ export default function Hero() {
                     </div>
                 </motion.div>
 
-                {/* Right: Illustration */}
+                {/* Right: Hero Image */}
                 <motion.div
                     initial={{ opacity: 0, x: 40 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-                    className="relative hidden lg:block"
+                    className="relative hidden lg:flex items-center justify-center"
                 >
-                    <div className="relative w-full max-w-lg mx-auto">
-                        {/* Outer glow */}
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 to-accent/10 blur-[60px] animate-pulse-glow" />
-                        <HeroIllustration />
+                    {/* Glow blob */}
+                    <div className="absolute w-[480px] h-[480px] rounded-full bg-primary/10 blur-[80px]" />
+
+                    {/* Person image */}
+                    <div className="relative">
+                        <Image
+                            src="/hero.png"
+                            alt="Face verification demo"
+                            width={420}
+                            height={520}
+                            className="relative z-10 object-contain drop-shadow-2xl"
+                            priority
+                        />
+
+                        {/* Floating: Match score card */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.8, duration: 0.5 }}
+                            className="absolute top-8 -right-6 z-20 bg-white rounded-2xl shadow-xl border border-gray-100 px-4 py-3 flex items-center gap-3 min-w-[170px]"
+                        >
+                            <div className="w-9 h-9 rounded-xl bg-green-100 flex items-center justify-center shrink-0">
+                                <CheckCircle2 size={18} className="text-green-600" />
+                            </div>
+                            <div>
+                                <div className="text-xs text-gray-400 font-medium">Face Match</div>
+                                <div className="text-base font-bold text-gray-800">99.98%</div>
+                            </div>
+                        </motion.div>
+
+                        {/* Floating: Scan label */}
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 1.0, duration: 0.5 }}
+                            className="absolute bottom-20 -left-8 z-20 bg-white rounded-2xl shadow-xl border border-gray-100 px-4 py-3 flex items-center gap-3"
+                        >
+                            <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
+                                <ScanLine size={18} className="text-primary" />
+                            </div>
+                            <div>
+                                <div className="text-xs text-gray-400 font-medium">OCR + Liveness</div>
+                                <div className="text-sm font-bold text-gray-800">Verified ✓</div>
+                            </div>
+                        </motion.div>
+
+                        {/* Scan line animation */}
+                        <motion.div
+                            animate={{ y: [0, 480, 0] }}
+                            transition={{ repeat: Infinity, duration: 3.5, ease: "linear" }}
+                            className="absolute inset-x-0 h-0.5 bg-gradient-to-r from-transparent via-primary/60 to-transparent z-20 pointer-events-none"
+                            style={{ top: 0 }}
+                        />
+
                     </div>
                 </motion.div>
             </div>

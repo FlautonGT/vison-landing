@@ -1,19 +1,52 @@
 "use client";
 import { motion } from "framer-motion";
 import {
-    FileText, Users, ScanFace, ShieldCheck, Database,
-    CheckCircle, Eye, Search, MapPin,
+    FileText, ScanFace, Eye, ShieldAlert, Search, UserCheck,
 } from "lucide-react";
 
 const products = [
-    { icon: FileText, title: "OCR Identity", desc: "Ekstraksi data otomatis dari KTP, NPWP, SIM, dan dokumen identitas lainnya dengan akurasi tinggi.", price: "Rp 1.500" },
-    { icon: ScanFace, title: "Face Compare", desc: "Bandingkan wajah selfie dengan foto dokumen identitas menggunakan AI.", price: "Rp 1.000" },
-    { icon: Database, title: "Data NIK", desc: "Ambil data kependudukan langsung dari database Dukcapil.", price: "Rp 2.000" },
-    { icon: CheckCircle, title: "Validasi NIK", desc: "Validasi kecocokan NIK, nama, dan tanggal lahir ke Dukcapil.", price: "Rp 2.000" },
-    { icon: Eye, title: "Liveness Detection", desc: "Deteksi wajah hidup anti-spoofing dengan custom SDK.", price: "Rp 2.500" },
-    { icon: ShieldCheck, title: "Document Authenticity", desc: "Verifikasi keaslian dokumen identitas dari pemalsuan.", price: "Rp 1.500" },
-    { icon: Search, title: "Watchlist Screening", desc: "Screening nama terhadap daftar PPATK/DTTOT untuk AML compliance.", price: "Rp 1.000" },
-    { icon: MapPin, title: "Territory / Wilayah", desc: "Data wilayah administratif Indonesia lengkap berdasarkan Kepmendagri 2025.", price: "Gratis" },
+    {
+        icon: UserCheck,
+        title: "e-KYC",
+        desc: "Verifikasi identitas pelanggan end-to-end: OCR dokumen, liveness detection, dan face match dalam satu alur terintegrasi.",
+        price: "Rp 3.500",
+        tag: "Paling Populer",
+    },
+    {
+        icon: Eye,
+        title: "Liveness Detection",
+        desc: "Pastikan pengguna adalah orang asli. Anti-spoofing detection mencegah serangan foto cetak, video replay, dan deepfake.",
+        price: "Rp 2.500",
+        tag: null,
+    },
+    {
+        icon: ShieldAlert,
+        title: "Deepfake Detection",
+        desc: "Deteksi manipulasi wajah berbasis AI — swap face, synthetic face, dan serangan injection secara real-time.",
+        price: "Rp 2.500",
+        tag: null,
+    },
+    {
+        icon: ScanFace,
+        title: "Face Match (1:1)",
+        desc: "Bandingkan dua wajah dengan akurasi biometrik hingga 99.9%. Cocok untuk verifikasi selfie vs foto KTP.",
+        price: "Rp 1.000",
+        tag: null,
+    },
+    {
+        icon: FileText,
+        title: "OCR",
+        desc: "Ekstrak data dari KTP, NPWP, SIM, dan paspor secara otomatis. Hasilkan data terstruktur dalam hitungan detik.",
+        price: "Rp 1.500",
+        tag: null,
+    },
+    {
+        icon: Search,
+        title: "Watchlist Screening",
+        desc: "Screening nama terhadap daftar PPATK, DTTOT, dan database global untuk kepatuhan AML/CFT.",
+        price: "Rp 1.000",
+        tag: null,
+    },
 ];
 
 const containerVariants = {
@@ -43,8 +76,7 @@ export default function Products() {
                         <span className="gradient-text">Verifikasi Identitas</span>
                     </h2>
                     <p className="text-text-secondary max-w-2xl mx-auto">
-                        10+ layanan API siap pakai untuk kebutuhan e-KYC dan compliance
-                        bisnis Anda.
+                        6 layanan API terintegrasi untuk kebutuhan e-KYC, biometrik, dan compliance bisnis Anda.
                     </p>
                 </motion.div>
 
@@ -53,7 +85,7 @@ export default function Products() {
                     initial="hidden"
                     whileInView="visible"
                     viewport={{ once: true, margin: "-100px" }}
-                    className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5"
+                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
                 >
                     {products.map((p) => (
                         <motion.div
@@ -61,6 +93,11 @@ export default function Products() {
                             variants={cardVariants}
                             className="group relative rounded-2xl glass p-6 hover:bg-black/[0.02] transition-all duration-300 hover:-translate-y-1 cursor-pointer"
                         >
+                            {p.tag && (
+                                <span className="absolute top-4 right-4 text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary text-white">
+                                    {p.tag}
+                                </span>
+                            )}
                             <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary/10 to-accent/20 flex items-center justify-center mb-4 group-hover:shadow-lg group-hover:shadow-primary/10 transition-shadow">
                                 <p.icon size={22} className="text-primary" />
                             </div>

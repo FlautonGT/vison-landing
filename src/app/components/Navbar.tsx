@@ -31,14 +31,13 @@ export default function Navbar() {
         >
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                 {/* Logo */}
-                <a href="/" className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                        <span className="text-white font-extrabold text-sm">V</span>
-                    </div>
-                    <span
-                        className="text-xl font-bold tracking-tight text-text-primary">
-                        VISON
-                    </span>
+                <a href="/" className="flex items-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                        src="/logo.png"
+                        alt="Vison"
+                        className="h-9 w-auto object-contain"
+                    />
                 </a>
 
                 {/* Desktop links */}

@@ -35,11 +35,13 @@ export default function Footer() {
                 <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-10">
                     {/* Brand */}
                     <div className="lg:col-span-2">
-                        <div className="flex items-center gap-2 mb-4">
-                            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-accent flex items-center justify-center">
-                                <span className="text-white font-extrabold text-sm">V</span>
-                            </div>
-                            <span className="text-xl font-bold text-text-primary">VISON</span>
+                        <div className="mb-4">
+                            {/* eslint-disable-next-line @next/next/no-img-element */}
+                            <img
+                                src="/logo.png"
+                                alt="Vison"
+                                className="h-9 w-auto object-contain"
+                            />
                         </div>
                         <p className="text-sm text-text-secondary leading-relaxed mb-4 max-w-xs">
                             Platform e-KYC & identity verification Indonesia. Self-service, pay-as-you-go, developer-friendly.
