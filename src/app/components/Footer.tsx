@@ -38,7 +38,7 @@ export default function Footer() {
                         <div className="mb-4">
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
-                                src="/logo.png"
+                                src="/logo.svg"
                                 alt="Vison"
                                 className="h-9 w-auto object-contain"
                             />

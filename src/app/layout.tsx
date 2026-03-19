@@ -2,9 +2,12 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Vison — Easily Secure Your Business | Platform e-KYC & Identity Verification Indonesia",
+  title: "Vison — Verify Identities. Prevent Fraud. Build Trust. | Platform e-KYC & Identity Verification Indonesia",
   description:
     "Vison adalah platform e-KYC & identity verification Indonesia. Verifikasi identitas pelanggan dengan OCR, Face Compare, Liveness Detection, dan lebih banyak lagi. Self-service, pay-as-you-go, developer-friendly.",
+  icons: {
+    icon: "/favicon.ico",
+  },
   keywords: [
     "e-KYC",
     "identity verification",
@@ -17,7 +20,7 @@ export const metadata: Metadata = {
     "Vison",
   ],
   openGraph: {
-    title: "Vison — Easily Secure Your Business",
+    title: "Vison — Verify Identities. Prevent Fraud. Build Trust.",
     description:
       "Platform e-KYC & identity verification Indonesia. Self-service, pay-as-you-go, developer-friendly.",
     url: "https://vison.id",
