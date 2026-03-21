@@ -81,10 +81,10 @@ export default function Footer() {
 
                 <div className="mt-12 pt-8 border-t border-black/5 flex flex-col sm:flex-row justify-between items-center gap-4">
                     <p className="text-sm text-text-muted">
-                        © 2026 Vison. All rights reserved.
+                        © 2026 PT Gerbang Transaksi Digital. All rights reserved.
                     </p>
                     <p className="text-xs text-text-muted">
-                        vison.id — Easily Secure Your Business
+                        vison.id — Verify Identities. Prevent Fraud. Build Trust.
                     </p>
                 </div>
             </div>

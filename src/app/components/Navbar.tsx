@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 
 const navLinks = [
     { label: "Produk", href: "/products" },
@@ -31,25 +32,25 @@ export default function Navbar() {
         >
             <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
                 {/* Logo */}
-                <a href="/" className="flex items-center">
+                <Link href="/" className="flex items-center">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                         src="/logo.svg"
                         alt="Vison"
                         className="h-9 w-auto object-contain"
                     />
-                </a>
+                </Link>
 
                 {/* Desktop links */}
                 <div className="hidden md:flex items-center gap-8">
                     {navLinks.map((l) => (
-                        <a
+                        <Link
                             key={l.href}
                             href={l.href}
                             className="text-sm text-text-secondary hover:text-primary transition-colors"
                         >
                             {l.label}
-                        </a>
+                        </Link>
                     ))}
                 </div>
 
@@ -89,14 +90,14 @@ export default function Navbar() {
                     >
                         <div className="px-6 py-4 flex flex-col gap-4">
                             {navLinks.map((l) => (
-                                <a
+                                <Link
                                     key={l.href}
                                     href={l.href}
                                     onClick={() => setMobileOpen(false)}
                                     className="text-sm text-text-secondary hover:text-primary transition-colors"
                                 >
                                     {l.label}
-                                </a>
+                                </Link>
                             ))}
                             <div className="flex flex-col gap-2 pt-2 border-t border-black/10">
                                 <a href="https://dashboard.vison.id/login" className="text-sm text-text-secondary">
