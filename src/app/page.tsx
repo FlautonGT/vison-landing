@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import TrustStrip from "./components/TrustStrip";
 import Stats from "./components/Stats";
 import ClientLogos from "./components/ClientLogos";
 import Products from "./components/Products";
@@ -22,6 +23,7 @@ export default function Home() {
     <main className="min-h-screen">
       <Navbar />
       <Hero />
+      <TrustStrip />
       <Stats />
       <ClientLogos />
       <Certifications />
