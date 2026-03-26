@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, CheckCircle2, Shield } from "lucide-react";
 import DeviceMockup from "./DeviceMockup";
@@ -66,10 +66,18 @@ export default function Hero() {
         >
           <div className="absolute left-1/2 top-14 h-[24rem] w-[24rem] -translate-x-1/2 rounded-full bg-primary/18 blur-[110px]" />
 
-          <div className="relative rounded-[2.4rem] border border-white/70 bg-white/60 p-5 shadow-[0_32px_90px_rgba(15,23,42,0.14)] backdrop-blur-xl">
-            <div className="absolute inset-0 rounded-[2.4rem] bg-[linear-gradient(135deg,rgba(16,196,105,0.08),transparent_40%,rgba(15,23,42,0.04)_100%)]" />
+          <div className="relative overflow-hidden rounded-[2.4rem] border border-white/70 bg-white/60 p-5 shadow-[0_32px_90px_rgba(15,23,42,0.14)] backdrop-blur-xl">
+            <div className="absolute inset-0 z-0">
+              <Image 
+                src="/hero_lifestyle_background.png" 
+                alt="Background" 
+                fill 
+                className="object-cover opacity-60 mix-blend-overlay"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.9),rgba(255,255,255,0.6)_100%)]" />
+            </div>
 
-            <div className="relative flex items-center justify-between rounded-[1.4rem] border border-white/70 bg-white/90 px-4 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
+            <div className="relative z-10 flex items-center justify-between rounded-[1.4rem] border border-white/70 bg-white/90 px-4 py-3 shadow-[0_12px_30px_rgba(15,23,42,0.06)]">
               <div>
                 <div className="text-[11px] font-semibold uppercase tracking-[0.18em] text-text-muted">
                   Product preview
@@ -89,12 +97,20 @@ export default function Hero() {
                 initial={{ opacity: 0, x: -18 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.45, duration: 0.45 }}
-                className="absolute left-0 top-[4.5rem] z-20 rounded-[1.6rem] border border-slate-200/80 bg-white/95 px-4 py-4 shadow-[0_24px_60px_rgba(15,23,42,0.12)] backdrop-blur"
+                className="absolute left-0 top-[4.5rem] z-20 w-[240px] rounded-[1.6rem] border border-slate-200/80 bg-white/95 px-4 py-4 shadow-[0_24px_60px_rgba(15,23,42,0.12)] backdrop-blur"
               >
                 <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-muted">
                   OCR status
                 </div>
-                <div className="mt-2 text-lg font-semibold text-text-primary">
+                <div className="relative mt-3 h-[90px] w-full overflow-hidden rounded-xl border border-slate-100">
+                  <Image 
+                    src="/ktp_extraction_card.png" 
+                    alt="KTP Extraction" 
+                    fill 
+                    className="object-cover"
+                  />
+                </div>
+                <div className="mt-3 text-lg font-semibold text-text-primary">
                   KTP extracted
                 </div>
                 <div className="mt-1 text-sm text-text-secondary">
@@ -111,10 +127,22 @@ export default function Hero() {
                 <div className="text-[10px] font-semibold uppercase tracking-[0.18em] text-text-muted">
                   Face match
                 </div>
-                <div className="mt-2 text-2xl font-black tracking-[-0.04em] text-text-primary">
-                  99.98%
+                <div className="mt-3 flex items-center gap-3">
+                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full ring-2 ring-emerald-500/20">
+                    <Image 
+                      src="/face_match_avatar.png" 
+                      alt="Face Match" 
+                      fill 
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <div className="text-2xl font-black tracking-[-0.04em] text-text-primary">
+                      99.98%
+                    </div>
+                    <div className="text-sm text-text-secondary">Ready for decision</div>
+                  </div>
                 </div>
-                <div className="mt-1 text-sm text-text-secondary">Ready for decision</div>
               </motion.div>
 
               <motion.div

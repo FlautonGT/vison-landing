@@ -1,63 +1,48 @@
 "use client";
 
 import { motion } from "framer-motion";
-import DeviceMockup from "./DeviceMockup";
-import {
-  DeepfakeScreen,
-  EkycFlowScreen,
-  FaceMatchScreen,
-  LivenessScreen,
-  OcrWorkspaceScreen,
-  WatchlistScreen,
-} from "./ProductScreens";
 
 const features = [
   {
     tag: "01",
     title: "e-KYC",
     desc: "Verifikasi identitas pelanggan end-to-end dalam satu alur terintegrasi: scan dokumen, liveness detection, dan face match lewat satu API sederhana.",
-    preview: EkycFlowScreen,
-    variant: "phone" as const,
+    image: "/mockups/ekyc_ui_v2_1774534596716.png",
     reverse: false,
   },
   {
     tag: "02",
     title: "OCR",
     desc: "Ekstrak data KTP, NPWP, dan SIM secara otomatis. Hasil terstruktur langsung siap dipakai untuk onboarding dan validasi lanjutan.",
-    preview: OcrWorkspaceScreen,
-    variant: "laptop" as const,
+    image: "/mockups/ocr_ui_v2_1774534621330.png",
     reverse: true,
   },
   {
     tag: "03",
     title: "Face Match (1:1)",
     desc: "Bandingkan selfie dengan foto dokumen untuk memastikan identitas yang valid dan menekan fraud di alur onboarding.",
-    preview: FaceMatchScreen,
-    variant: "laptop" as const,
+    image: "/mockups/facematch_ui_v2_1774534639484.png",
     reverse: false,
   },
   {
     tag: "04",
     title: "Liveness Detection",
     desc: "Pastikan pengguna adalah orang asli yang hadir secara langsung. Anti-spoofing membantu mencegah replay, photo attack, dan injection.",
-    preview: LivenessScreen,
-    variant: "phone" as const,
+    image: "/mockups/liveness_ui_v2_1774534668759.png",
     reverse: true,
   },
   {
     tag: "05",
     title: "Deepfake Detection",
     desc: "Deteksi manipulasi wajah berbasis AI secara real-time untuk memperkuat trust dan meminimalkan risiko identitas sintetis.",
-    preview: DeepfakeScreen,
-    variant: "laptop" as const,
+    image: "/mockups/deepfake_ui_v2_1774534690447.png",
     reverse: false,
   },
   {
     tag: "06",
     title: "Watchlist Screening",
     desc: "Screening nama terhadap watchlist dan sinyal kepatuhan untuk membantu workflow AML, fraud review, dan audit trail.",
-    preview: WatchlistScreen,
-    variant: "laptop" as const,
+    image: "/mockups/watchlist_ui_v2_1774534710374.png",
     reverse: true,
   },
 ];
@@ -91,8 +76,6 @@ export default function FeaturesShowcase() {
 
         <div className="space-y-24">
           {features.map((feature, index) => {
-            const Preview = feature.preview;
-
             return (
               <motion.div
                 key={feature.title}
@@ -117,13 +100,22 @@ export default function FeaturesShowcase() {
                 </div>
 
                 <div className={feature.reverse ? "lg:order-1" : ""}>
-                  <DeviceMockup
-                    variant={feature.variant}
-                    floatDelay={index * 0.15}
-                    className={feature.variant === "phone" ? "max-w-[340px]" : undefined}
+                  <motion.div
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{
+                      duration: 6,
+                      delay: index * 0.15,
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                    }}
+                    className="relative mx-auto w-full max-w-[340px]"
                   >
-                    <Preview />
-                  </DeviceMockup>
+                    <img
+                      src={feature.image}
+                      alt={feature.title}
+                      className="w-full h-auto rounded-[2.5rem] shadow-[0_36px_90px_rgba(15,23,42,0.45)] border border-white/10 object-contain"
+                    />
+                  </motion.div>
                 </div>
               </motion.div>
             );
