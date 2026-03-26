@@ -162,7 +162,7 @@ export default function Hero() {
                 </div>
               </motion.div>
 
-              <div className="relative z-10 mx-auto max-w-[320px] pt-8">
+              <div className="relative z-10 mx-auto max-w-[320px] pt-8 hidden">
                 <DeviceMockup variant="phone" floatDelay={0.2}>
                   <EkycFlowScreen />
                 </DeviceMockup>
